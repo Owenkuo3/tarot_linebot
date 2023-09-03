@@ -1,32 +1,30 @@
-name: CI/CD Workflow
+name: Deploy LINE Bot
 
-# 触发条件：在主分支上的代码推送时执行
 on:
   push:
     branches:
       - main
 
 jobs:
-  build_and_deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2  # 拉取存储库代码
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8  # 指定您的 Python 版本
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt  # 如果您有依赖文件，请适当更改此命令
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
 
-      # 在这里可以执行其他构建或测试步骤，根据您的项目需要
+    - name: Install dependencies
+      run: pip install -r requirements.txt
 
-      - name: Deploy to production
-        run: |
-          # 在这里编写部署到生产环境的命令
-          # 例如：通过 SSH 将代码复制到服务器、重启服务等
-
-  # 您可以定义其他 jobs，例如测试、部署到测试环境等，根据需要添加
+    - name: Run your Flask app
+      run: python your_app.py
