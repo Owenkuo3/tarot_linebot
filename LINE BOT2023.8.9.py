@@ -127,4 +127,3 @@ def handle_message(event):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
-gunicorn -w 4 -b 0.0.0.0:8080 "LINE BOT2023.8.9:app"
