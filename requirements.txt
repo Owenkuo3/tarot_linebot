@@ -1,4 +1,3 @@
-pip install --upgrade pip
 
 git add requirements.txt
 git commit -m "添加 requirements.txt 文件"
