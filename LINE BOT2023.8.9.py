@@ -118,7 +118,7 @@ def handle_message(event):
     elif user_stages.get(user_id) == 4:
         # 在这里处理用户输入的选项，然后根据选项获取答案
         option = user_input  # 根据实际需求处理选项输入
-        answer = get_answer_by_option(question, option)  # 假设有一个函数从数据库中获取相应选项的答案
+        answer = get_answer_by_date(question, option)  # 假设有一个函数从数据库中获取相应选项的答案
         reply_message = TextSendMessage(text=f"您選的選項是 {option}。\n答案是：{answer}。是否需要再選一個選項？請輸入是或否。")
         user_stages[user_id] = 3
     
