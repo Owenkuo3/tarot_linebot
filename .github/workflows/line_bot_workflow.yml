@@ -22,4 +22,4 @@ jobs:
       run: pip install -r requirements.txt  # 如果您有依赖文件，请适当更改此命令
 
     - name: Run your Flask app
-      run: python LINE BOT2023.8.9.py  # 替换成您的 Flask 应用的启动命令
+      run: python "LINE BOT2023.8.9.py"  # 替换成您的 Flask 应用的启动命令
