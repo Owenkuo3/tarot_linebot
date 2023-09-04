@@ -3,23 +3,23 @@ name: Deploy LINE Bot
 on:
   push:
     branches:
-      - main  # 替换成您的主分支名称，例如：master
+      - main
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # 您可以选择不同的操作系统环境
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  # 拉取存储库代码
+      uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8  # 指定您的 Python 版本
+        python-version: '3.11'  # 请根据您的Python版本进行更改
 
     - name: Install dependencies
-      run: pip install -r requirements.txt  # 如果您有依赖文件，请适当更改此命令
+      run: pip install -r requirements.txt
 
-    - name: Run your Flask app
-      run: python "LINE BOT2023.8.9.py"  # 替换成您的 Flask 应用的启动命令
+    - name: Start Gunicorn
+      run: gunicorn -w 4 -b 0.0.0.0:8080 "LINE BOT2023.8.9:app"
