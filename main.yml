@@ -21,6 +21,12 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
+    - name: Debug
+      run: echo "Starting gunicorn..."
+      
+    - name: Run your Flask app
+      run: gunicorn -w 4 -b 0.0.0.0:8080 LINE_BOT_2023_8_9:app
+  
     # 添加一个步骤，将gunicorn的输出重定向到文件
     - name: Run gunicorn
       run: gunicorn -w 4 -b 0.0.0.0:8080 "LINE_BOT_2023_8_9:app" > gunicorn.log 2>&1
