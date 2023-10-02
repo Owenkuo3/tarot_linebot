@@ -8,8 +8,8 @@ import gunicorn
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('M4a2HWyiSIlZAMB+ciIw6ZsEOZBavOT9ClySuBAGBRu4elOXLuYjJ2bTUEZlOyoagFoxByYGrX1gD3glTGXHi83mDwpbRAuu4/XJJadfjnsR5GVhJGEaB9U1cczXuebJTcjIRxqJKmzrzADVd4Gg6gdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('691f964a7ef924b0dfde14ea617eef8f')
+line_bot_api = LineBotApi('')
+handler = WebhookHandler('')
 
 user_stages = {}  # 用戶階段記錄
 
